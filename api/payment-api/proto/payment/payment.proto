@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package payment;
+option go_package = "github.com/Katois/emall/api/payment-api;payment";
+
+message PayReq {
+  string orderId = 1;
+  string payerId = 2;
+  string payeeId = 3;
+  string amount = 4;
+}
+
+message PayResp {
+  bool success = 1;
+}
+
+service PaymentService {
+  rpc Pay(PayReq) returns (PayResp);
+}
